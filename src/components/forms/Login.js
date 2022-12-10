@@ -54,7 +54,7 @@ function Login({ onLogin }) {
        />
      </div>
       <>
-        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+        <button type="submit">{isLoading ? "Loading..." : "Login"}</button>
       </>
       <>
         {errors.map((err) => (

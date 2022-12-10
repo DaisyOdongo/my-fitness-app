@@ -12,11 +12,12 @@ function Exercise({ user }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
+  //const url = "http://localhost:3000";
 
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("/exercises", {
+    fetch("{url}/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

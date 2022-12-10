@@ -1,10 +1,29 @@
 import React from "react";
 import Navbar from "../forms/Navbar"
 import "./Home.css";
-const Home = () => {
+import { useState, useEffect } from "react";
+import UserLogin from "../UserLogin/UserLogin"
+ 
+
+const url = "http://localhost:3000";
+//const CartContext = React.createContext();
+function Home() {   
+const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  if (!user) return <UserLogin onLogin={setUser} />;
+
   return (
     <div>
-      <Navbar />
+      <Navbar user={user} setUser={setUser} />
       <div className="container-fluid banner">
         <div className="card p-5 banner-title">
           <h5>Track your workouts on the go</h5>
@@ -33,4 +52,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default (Home , url);
