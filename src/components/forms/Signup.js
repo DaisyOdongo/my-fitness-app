@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Exercise from "../Exercise";
+//import Exercise from "../Exercise";
 import Login from "./Login";
 import "./Signup.css"
 //import url from "../Home/Home"
