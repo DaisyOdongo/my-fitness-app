@@ -1,25 +1,11 @@
 import React from "react";
 import Navbar from "../forms/Navbar"
 import "./Home.css";
-import { useState, useEffect } from "react";
-import UserLogin from "../UserLogin/UserLogin"
- 
+import { useState } from "react";
 
 const url = "http://localhost:3000";
-//const CartContext = React.createContext();
 function Home() {   
 const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    // auto-login
-    fetch("/me").then((response) => {
-      if (response.ok) {
-        response.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
-
-  if (!user) return <UserLogin onLogin={setUser} />;
 
   return (
     <div>
