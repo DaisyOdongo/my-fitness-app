@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">

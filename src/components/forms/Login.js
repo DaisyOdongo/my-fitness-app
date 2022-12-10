@@ -16,12 +16,12 @@ function Login({ onLogin }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ username, password }),
-    }).then((r) => {
+    }).then((response) => {
       setIsLoading(false);
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
+      if (response.ok) {
+        response.json().then((user) => onLogin(user));
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        response.json().then((err) => setErrors(err.errors));
       }
     }).catch(e=>{
         console.log("Error Sending Data" + e)

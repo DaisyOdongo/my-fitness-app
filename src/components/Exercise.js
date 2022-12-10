@@ -123,4 +123,4 @@ function Exercise({ user }) {
     );
 };
 
-export default Exercise;
+export default (Exercise, useHistory);
