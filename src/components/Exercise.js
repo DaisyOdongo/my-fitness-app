@@ -1,9 +1,9 @@
-import React, { useState, useHistory } from "react";
+import React, { useState, useNavigate } from "react";
 import "./Exercise.css"
 
 
 
-function Exercise({ user }) {
+function Exercise({user}) {
   const [name, setName] = useState("My Awesome Recipe");
   const [day, setDay] = useState([]);
   const [type, setType] = useState([]);
@@ -11,13 +11,13 @@ function Exercise({ user }) {
   const [weight, setWeight] = useState([]);
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   //const url = "http://localhost:3000";
 
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("{url}/users", {
+    fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function Exercise({ user }) {
     }).then((response) => {
       setIsLoading(false);
       if (response.ok) {
-        history.push("/");
+        navigate.push("/");
       } else {
         response.json().then((err) => setErrors(err.errors));
       }
@@ -123,4 +123,4 @@ function Exercise({ user }) {
     );
 };
 
-export default (Exercise, useHistory);
+export default Exercise;
