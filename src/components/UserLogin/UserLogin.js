@@ -6,14 +6,19 @@ function UserLogin({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <div>
+    <>
       <h1>My Fitness Tracker App</h1>
       {showLogin ? (
         <>
           <Login onLogin={onLogin} />
           <div />
-          
-        </>
+          <p>
+            Don't have an account?
+            <button color="secondary" onClick={() => setShowLogin(false)}>
+              Sign Up
+            </button>
+      </p>  
+      </>
       ) : (
         <>
           <SignUp onLogin={onLogin} />
@@ -26,7 +31,7 @@ function UserLogin({ onLogin }) {
           </p>
         </>
       )}
-    </div>
+    </>
   );
 }
  export default UserLogin;

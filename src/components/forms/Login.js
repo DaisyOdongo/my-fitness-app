@@ -6,7 +6,6 @@ function Login({ onLogin }) {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [showLogin, setShowLogin] = useState(true);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -54,17 +53,15 @@ function Login({ onLogin }) {
        onChange={(e) => setPassword(e.target.value)}
        />
      </div>
-      <a className="link" href="#">Forgot your password?</a>
-     <button className="log-btn"variant="fill" color="primary" type="submit">
-          {isLoading ? "Loading..." : "Login"}</button>
-      <p>
-            Don't have an account?
-            <button color="secondary" onClick={() => setShowLogin(false)}>
-              Sign Up
-            </button>
-      </p>     
+      <>
+        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+      </>
+      <>
+        {errors.map((err) => (
+          <error key={err}>{err}</error>
+        ))}
+      </>  
    </div>
-
     </form>
   );
 }

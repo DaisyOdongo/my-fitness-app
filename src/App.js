@@ -25,7 +25,7 @@ function App() {
       <Navbar user={user} setUser={setUser} />
       <main>
         <Routes>
-           <Route path="/" element={<Home />} />
+           <Route path="/" element={<Home />} />     
           <Route path="/new" element={<Exercise user={user} />} />
           <Route path="/components/workoutlist" element={<WorkoutList />}/>
         </Routes>
